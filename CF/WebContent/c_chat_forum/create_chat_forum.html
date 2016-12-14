@@ -1,0 +1,53 @@
+<html>
+<div ng-hide="currentUser==''">
+	<div class="generic-container" ng-controller="ForumController as ctrl">
+		<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+			<div class="container">
+
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="forumId">FORUM
+							ID</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.forum.forumId" id="forumId"
+								class="forumId form-control input-sm" placeholder="Enter FORUM ID"
+								required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="ftitle">Forum Title</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.forum.forumTitle" id="forumTitle"
+								class="forumTitle form-control input-sm"
+								placeholder="Enter Forum Title" required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="fDescription">Description</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.forum.forumDescription"
+								id="forumDescription" class="forumDescription form-control input-sm"
+								placeholder="Write description for forum" required ng-minlength="5" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+							<div class="form-actions floatRight">
+								<input type="submit" value="Submit"
+									class="btn btn-primary btn-sm" >
+								<button type="button" ng-click="ctrl.reset()"
+									class="btn btn-warning btn-sm">Reset Form</button>
+							</div>
+						</div>
+				
+		</form>
+	</div>
+</div>
+</html>

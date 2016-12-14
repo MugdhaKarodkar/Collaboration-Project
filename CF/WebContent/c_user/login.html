@@ -1,0 +1,39 @@
+
+<div 
+	ng-controller="UserController as ctrl">
+
+	<div ng-show='ctrl.user.errorMessage'>
+		<div class="alert alert-danger fade in">
+			{{ctrl.user.errorMessage}}</div>
+
+	</div>
+
+
+<!-- 	<span ng-hide="ctrl.userLoggedIn"> -->
+		<form name="form" ng-submit="ctrl.login()" role="form">
+
+		<div class="form-group"
+				ng-class="{ 'has-error': form.user_id.$dirty && form.user_id.$error.required }">
+				<label for="user_id">User ID</label> <input type="text"
+					name="user_id" id="user_id" class="form-control"
+					ng-model="ctrl.user.user_id" required /> <span
+					ng-show="form.user_id.$dirty && form.user_id.$error.required"
+					class="help-block">User ID is required</span>
+			</div>
+			<div class="form-group"
+				ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+				<label for="password">Password</label> <input type="password"
+					name="password" id="password" class="form-control"
+					ng-model="ctrl.user.password" required /> <span
+					ng-show="form.password.$dirty && form.password.$error.required"
+					class="help-block">Password is required</span>
+			</div>
+			<div class="form-actions">
+				<button type="submit"
+					ng-disabled="form.$invalid || ctrl.dataLoading"
+					class="btn btn-primary">Login</button>
+				<a href="#/register" class="btn btn-link">Register</a>
+			</div>
+		</form>
+<!-- 	</span> -->
+</div>
