@@ -1,0 +1,115 @@
+'use strict';
+ 
+app.controller('FriendController', ['UserService','$scope', 'FriendService','$location',
+   '$rootScope',function(UserService,$scope, FriendService,$location,$routeParams,$rootScope) {
+	console.log("FriendController...")
+          var self = this;
+          self.friend=
+                     {id:'',userID:'',friendID:'',status:''};
+          self.friends=[];
+          
+          self.user = {
+  				                user_id : '',
+								name : '',
+								password : '',
+								contact : '',
+								address : '',
+								mail : '',
+								//isOnline : '',
+								role : '',
+								errorCode : '',
+								errorMessage : '',
+								status : ''
+  			};
+  			self.users = [];
+  			//self.friendrequests=[];
+          
+         self.sendFriendRequest=sendFriendRequest
+         
+         function sendFriendRequest(friendID)
+         {
+
+       	  console.log("->sendFriendRequest :"+friendID)
+             FriendService.sendFriendRequest(friendID)
+                 .then(
+                              function(d) {
+                                   self.friend = d;
+                                  alert("Friend request sent")
+                                  console.log('Friend request sent');
+                              },
+                               function(errResponse)
+                               {
+                                   console.error('Error while sending friend request');
+                               }
+                      );
+         
+        	 
+         }
+          
+             
+          self.getMyFriends = function(){
+        	  console.log("Getting my friends")
+              FriendService.getMyFriends()
+                  .then(
+                               function(d) {
+                                    self.friends = d;
+                                    console.log("Got the friends list")
+                                     	/* $location.path('/view_friend');*/
+                               },
+                                function(errResponse){
+                                    console.error('Error while fetching Friends');
+                                }
+                       );
+          };
+          
+          /*self.getFriendRequests= function(){
+        	  console.log("Getting my friend requests")
+              FriendService.getFriendRequests()
+                  .then(
+                               function(d) {
+                                    self.friendrequests = d;
+                                    console.log("Got the friend request list")
+                          
+                               },
+                                function(errResponse){
+                                    console.error('Error while fetching Friend requests');
+                                }
+                       );
+          };*/
+            
+       
+         self.updateFriendRequest = function(friend, id){
+              FriendService.updateFriendRequest(friend, id)
+                      .then(
+                              self.fetchAllFriends, 
+                              function(errResponse){
+                                   console.error('Error while updating Friend.');
+                              } 
+                  );
+          };
+ 
+         self.deleteFriend = function(id){
+              FriendService.deleteFriend(id)
+                      .then(
+                              self.fetchAllFriends, 
+                              function(errResponse){
+                                   console.error('Error while deleting Friend.');
+                              } 
+                  );
+          };
+          
+          self.fetchAllUsers = function() {
+				UserService.fetchAllUsers().then(function(d) {
+					self.users = d;
+				}, function(errResponse) {
+					console.error('Error while fetching Users');
+				});
+			};
+            
+ 
+          self.fetchAllUsers();
+          self.getMyFriends();
+ 
+     
+ 
+      }]);

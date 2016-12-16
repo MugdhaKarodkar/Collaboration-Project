@@ -1,0 +1,28 @@
+
+	<div ng-controller="HomeController as ctrl">
+		<div ng-hide="currentUser==''">
+			<div class="nav navbar-nav navbar-left">Welcome  {{currentUser.name}}</div>
+			<div class="nav navbar-nav navbar-left"> , you logged in
+				as {{currentUser.role}}</div>
+		</div><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<h3 class="bg-primary">Jobs</h3>
+					<p>You can view and apply for jobs</p>
+					<p>You can apply for a particular job after login</p>
+				</div>
+				<div class="col-sm-4">
+					<h3 class="bg-primary">Blogs</h3>
+					<p>You can view the blog before login</p>
+					<p>If you want to write the blog,you need to login.The blog can
+						be approved/rejected by the Admin</p>
+				</div>
+				<div class="col-sm-4">
+					<h3 class="bg-primary">Alumni/Student</h3>
+					<p>This site is mainly for alumni and student of this
+						organization</p>
+				</div>
+			</div>
+		</div>
+	</div>
