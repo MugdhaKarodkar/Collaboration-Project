@@ -1,0 +1,67 @@
+<html>
+<div ng-hide="currentUser==''">
+	<div class="generic-container" ng-controller="BlogController as ctrl">
+		<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+			<div class="container">
+
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="blog_id">BLOG
+							ID</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.blog.blog_id" id="blog_id"
+								class="userid form-control input-sm" placeholder="Enter BLOG ID"
+								required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="btitle">Blog Title</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.blog.title" id="title"
+								class="username form-control input-sm"
+								placeholder="Enter blog title" required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="bdescription">Description</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.blog.description"
+								id="description" class="username form-control input-sm"
+								placeholder="Write description for your blog" required ng-minlength="5" />
+						</div>
+					</div>
+				</div>
+
+
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="reason">Reason of creation of blog</label>
+						<div class="col-md-7">
+							<input type="text" width="100" height="50"
+								ng-model="ctrl.blog.reason" id="reason"
+								class="form-control input-sm" placeholder="Please mention the reason for creation of blog" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+							<div class="form-actions floatRight">
+								<input type="submit" value="Submit"
+									class="btn btn-primary btn-sm" >
+								<button type="button" ng-click="ctrl.reset()"
+									class="btn btn-warning btn-sm">Reset Form</button>
+							</div>
+						</div>
+				
+		</form>
+	</div>
+</div>
+</html>

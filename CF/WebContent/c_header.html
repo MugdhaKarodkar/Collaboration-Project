@@ -1,0 +1,119 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="resources/fonts/font-awesome.css" /> -->
+<script src="resources/js//angular.min.js"></script>
+<script src="resources/js//angular-route.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
+<style>
+.back {
+	background-color: lightblue;
+	background-repeat: no-repeat;
+	background-size: cover
+}
+</style>
+</head>
+<body class="back">
+
+	<!-- HEADER AND NAVBAR -->
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="">Collaboration</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#/about"><i class="fa fa-shield"></i> About</a></li>
+					<li><a href="#/contact"><i class="fa fa-comment"></i>
+							Contact</a></li>
+							
+							<!--  <li><a href="#/myProfile"><i class="fa fa-shield"></i> My Profile</a></li>
+					<li><a href="#/job_opportunities">Job Opportunities</a></li>-->
+					
+					<!-- <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Blogs<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/create_blog">Add New Blog</a></li>
+							<li><a href="#/list_blog">Show list of blogs</a></li>
+							<li><a href="#/view_blog">View blog</a></li>
+						</ul></li> -->
+						
+                     <li><a href="#/create_blog">Add New Blog</a></li>
+                     <li><a href="#/list_blog">Show list of blogs</a></li>
+                    
+					<!-- <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Friends <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/add_friend">Add friend</a></li>
+							<li><a href="#/search_friend">Search friend</a></li>
+							<li><a href="#/view_friend">View friend</a></li>
+						</ul></li> -->
+						
+						<!--  <li><a href="#/add_friend">Add friend</a></li>-->
+							<li><a href="#/search_friend">Search friend</a></li>
+<!-- 							<li><a href="#/my_friend_requests">Friend Requests</a></li> -->
+							
+							<!--  <li><a href="#/view_friend">View friend</a></li>-->
+					<li><a href="#/create_event">Create Events</a></li>
+
+					<!--  <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Chat Forums <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/create_chat_forum">Create Chat Forum</a></li>
+							<li><a href="#/view_forum">View Existing Forums</a></li>
+						</ul>
+					</li>-->
+						
+					<!-- <li><a href="#/login"><span
+							class="glyphicon glyphicon-log-in"></span>Login</a></li> -->
+
+                    <li><a href="#/create_chat_forum">Create Chat Forum</a></li>
+                    <li><a href="#/view_forum">View Existing Forums</a></li>
+                    
+                    
+					<!--  <li class="dropdown" ng-controller="UserController as ctrl" ng-if="currentUser"><a href=class=
+						"dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
+							{{$rootScope.currentUser.mail}} <span class="caret"></span></a>
+						<ul class="dropdown-menu dropdownhover-bottom" role="menu">
+
+							<li><a href="#/user/notification/"><span
+									class="fa fa-bell-o"></span> Notification</a></li>
+							<li><a href="#/myProfile/{{currentUser.user_id}}"><span
+									class="fa fa-first-order"></span> My Profile</a></li>
+							<li><a href="#/user/friends/"><span
+									class="fa fa-bookmark"></span> Friends</a></li>
+							<li><a href="#/users/"><span class="fa fa-users"></span>
+									Users</a></li>
+						</ul>
+					</li>-->
+
+
+
+					<li ng-controller="UserController as ctrl">
+					   <li ng-show="currentUser==''">
+					      <li><a href="#/login"><span
+							class="glyphicon glyphicon-log-in"></span>Login</a></li></li>
+
+					
+					<!-- 						<li ng-hide="currentUser==''" > -->
+					<!-- 							<button type="button" ng-click="ctrl.logout()" -->
+					<!-- 								class="btn btn-warning btn-sm">Logout</button> -->
+					<!-- 						</li> -->
+
+					   <li ng-controller="UserController as ctrl" ng-click="ctrl.logout()" ng-if="currentUser"
+						ng-hide="currentUser==''"><a href="#/login"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+</body>
+</html>
